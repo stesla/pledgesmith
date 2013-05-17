@@ -1,6 +1,17 @@
 module Pledge.Core where
 
-import Data.List
+data Pledge = Pledge
+     { pledgeType :: Type
+     , duration :: Duration
+     , participants :: [Participant]
+     } deriving (Show, Eq)
+
+data Participant = Participant
+     { name :: String
+     , tasks :: [Aspect Task]
+     , boons :: [Aspect Boon]
+     , sanctions :: [Aspect Sanction]
+     } deriving (Show, Eq)
 
 data Aspect a = Basic a
               | Level a Spec
@@ -60,4 +71,3 @@ data Duration = Day
               | Lifelong
               | Generational
               deriving (Bounded, Enum, Eq, Ord, Show)
-
