@@ -48,6 +48,7 @@ data Sanction = Banishment
               | Poisoning
               | VulnerableGlamour
               | VulnerableViolence
+              | VulnerableBoth
               deriving (Bounded, Enum, Eq, Ord, Show)
 
 data Type = Vow
