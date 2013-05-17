@@ -3,9 +3,12 @@ module Pledge.Core where
 import Data.List
 
 data Aspect a = Basic a
-              | Level Level a
-              | Combined [Aspect a]
-              deriving (Eq, Show)
+              | Level a Spec
+              | Combined a [Spec]
+              deriving (Ord, Eq, Show)
+
+data Spec = Spec Level String
+          deriving (Ord, Eq, Show)
 
 data Level = Lesser | Medial | Greater
            deriving (Bounded, Enum, Ord, Eq, Show)
